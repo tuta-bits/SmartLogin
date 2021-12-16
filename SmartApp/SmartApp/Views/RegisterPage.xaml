@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartApp.Views.RegisterPage"
+             xmlns:vm="clr-namespace:SmartApp.ViewModels">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Login"
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <Grid Padding="10">
+        <Frame CornerRadius="20"
+               HasShadow="True"
+               BackgroundColor="AliceBlue">
+            <StackLayout Orientation="Vertical"
+                         Padding="12,6">
+                <Entry Text="{Binding Email}"
+                       Placeholder="E-mail"
+                       PlaceholderColor="LightCoral"
+                       BackgroundColor="AliceBlue"
+                       TextColor="Black"/>
+                <Entry Text="{Binding Password}"
+                       Placeholder="Password"
+                       PlaceholderColor="LightCoral"
+                       IsPassword="True"
+                       BackgroundColor="AliceBlue"
+                       TextColor="Black"/>
+                <Entry Text="{Binding ConfirmPassword}"
+                       Placeholder="Confrim Password"
+                       PlaceholderColor="LightCoral"
+                       IsPassword="True"
+                       BackgroundColor="AliceBlue"
+                       TextColor="Black"/>
+
+                <Button Command="{Binding RegisterCommand}"
+                        Text="Register"
+                        BorderColor="MediumPurple"
+                        BorderWidth="4"
+                        BackgroundColor="LightSteelBlue"
+                        TextColor="LightCoral"
+                        CornerRadius="10"/>
+                
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+
+</ContentPage>

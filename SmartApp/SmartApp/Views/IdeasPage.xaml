@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartApp.Views.IdeasPage"
+             xmlns:vm="clr-namespace:SmartApp.ViewModels">
+
+    <ContentPage.BindingContext>
+        <vm:IdeasViewModel/>
+    </ContentPage.BindingContext>
+
+
+
+
+    <Grid Padding="10">
+        <Frame CornerRadius="20"
+               HasShadow="True"
+               BackgroundColor="AliceBlue">
+            <StackLayout Orientation="Vertical"
+                         Padding="12,6">
+                <!--<Entry Text="{Binding AccessToken}"
+                       Placeholder="Access Token"
+                       PlaceholderColor="LightCoral"
+                       BackgroundColor="AliceBlue"
+                       TextColor="Black"/>-->
+
+                <Button Command="{Binding GetIdeasCommand}"
+                        Text="Display Info"
+                        BorderColor="MediumPurple"
+                        BorderWidth="4"
+                        BackgroundColor="LightSteelBlue"
+                        TextColor="LightCoral"
+                        CornerRadius="10"/>
+
+                <ListView ItemsSource="{Binding Ideas}"
+                          HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}"
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding Category}"
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding Description}"
+                                           TextColor="Black"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+
+</ContentPage>
