@@ -41,7 +41,9 @@
                         Clicked="GotoNewIdeaPage_Clicked"/>
 
                 <ListView ItemsSource="{Binding Ideas}"
-                          HasUnevenRows="True">
+                          x:Name="Smart"
+                          HasUnevenRows="True"
+                          ItemTapped="Smart_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

@@ -21,6 +21,9 @@ namespace SmartApp.ViewModels
         public string ConfirmPassword { get; set; }
 
 
+
+        /// <summary>Gets the register command.</summary>
+        /// <value>The register command.</value>
         public ICommand RegisterCommand
         {
             get

@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace SmartApp.Services
 {
@@ -112,6 +113,43 @@ namespace SmartApp.Services
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
             var pulse = await client.PostAsync("https://localhost:44312/api/ideas", content);
+
+            if (pulse.IsSuccessStatusCode)
+            {
+                await Application.Current.MainPage.DisplayAlert("Notification", "Hooray 🎈🎉 You've successfully made a new post 👍🏿 !", "OK");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Notification", "Check your internet connection and try again 😥 !", "OK");
+            }
+
+        }
+
+
+        /// <summary>Puts the idea asynchronous.</summary>
+        /// <param name="idea">The idea.</param>
+        /// <param name="accessToken">The access token.</param>
+        public async Task PutIdeaAsync(Idea idea, string accessToken)
+        {
+            var claim = new HttpClient();
+            claim.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
+
+            var json = JsonConvert.SerializeObject(idea);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await claim.PutAsync("https://localhost:44312/api/ideas/" + idea.Id, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                await Application.Current.MainPage.DisplayAlert("Notification", "Hooray 🎈🎉 You've successfully edited your post 👍🏿 !", "OK");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Notification !", "An error occured while trying to edit a post " +
+                            "Please make sure you're the creator of the post and try again 😥 !", "OK");
+            }
+
 
         }
     }

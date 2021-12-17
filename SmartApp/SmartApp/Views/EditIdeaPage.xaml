@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartApp.Views.AddNewIdeaPage"
+             x:Class="SmartApp.Views.EditIdeaPage"
              xmlns:vm="clr-namespace:SmartApp.ViewModels">
 
+    <!--<ContentPage.BindingContext>
+        <vm:EditIdeaViewModel />
+    </ContentPage.BindingContext>-->
 
-    <ContentPage.BindingContext>
-        <vm:AddNewIdeaViewModel/>
-    </ContentPage.BindingContext>
 
 
     <Grid Padding="10">
@@ -16,25 +16,25 @@
                BackgroundColor="AliceBlue">
             <StackLayout Orientation="Vertical"
                          Padding="12,6">
-                <Entry Text="{Binding Title}"
+                <Entry Text="{Binding Idea.Title}"
                        Placeholder="Title"
                        PlaceholderColor="LightCoral"
                        BackgroundColor="AliceBlue"
                        TextColor="Black"/>
-                <Entry Text="{Binding Category}"
+                <Entry Text="{Binding Idea.Category}"
                        Placeholder="Category"
                        PlaceholderColor="LightCoral"
                        BackgroundColor="AliceBlue"
                        TextColor="Black"/>
-                <Entry Text="{Binding Description}"
+                <Entry Text="{Binding Idea.Description}"
                        Placeholder="Description"
                        PlaceholderColor="LightCoral"
                        BackgroundColor="AliceBlue"
                        TextColor="Black"/>
 
 
-                <Button Command="{Binding AddCommand}"
-                        Text="Add New Post"
+                <Button Command="{Binding EditCommand}"
+                        Text="Edit Post"
                         BorderColor="MediumPurple"
                         BorderWidth="4"
                         BackgroundColor="LightSteelBlue"

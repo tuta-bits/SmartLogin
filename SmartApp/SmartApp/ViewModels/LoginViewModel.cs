@@ -17,6 +17,9 @@ namespace SmartApp.ViewModels
         public string Password { get; set; }
 
 
+
+        /// <summary>Gets the login command.</summary>
+        /// <value>The login command.</value>
         public ICommand LoginCommand
         {
             get
@@ -30,6 +33,8 @@ namespace SmartApp.ViewModels
             }
         }
 
+
+        /// <summary>Initializes a new instance of the <see cref="LoginViewModel" /> class.</summary>
         public LoginViewModel()
         {
             Username = Settings.Username;

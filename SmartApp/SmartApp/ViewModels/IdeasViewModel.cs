@@ -16,8 +16,13 @@ namespace SmartApp.ViewModels
         ApiServices _apiServices = new ApiServices();
         private List<Idea> _ideas;
 
-       // public string AccessToken { get; set; }
 
+        // public string AccessToken { get; set; }
+
+
+
+        /// <summary>Gets or sets the ideas.</summary>
+        /// <value>The ideas.</value>
         public List<Idea> Ideas 
         { 
             get { return _ideas; } 
@@ -28,6 +33,9 @@ namespace SmartApp.ViewModels
             }
         }
 
+
+        /// <summary>Gets the get ideas command.</summary>
+        /// <value>The get ideas command.</value>
         public ICommand GetIdeasCommand
         {
             get
@@ -40,6 +48,12 @@ namespace SmartApp.ViewModels
             }
         }
 
+
+
+        /// <summary>Occurs when a property value changes.</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

@@ -21,6 +21,8 @@ namespace SmartApp.ViewModels
 
 
 
+        /// <summary>Gets the add command.</summary>
+        /// <value>The add command.</value>
         public ICommand AddCommand
         {
             get
@@ -35,7 +37,7 @@ namespace SmartApp.ViewModels
                     };
                     await _apiServices.PostIdeaAsync(groot, Settings.AccessToken);
 
-                    await Application.Current.MainPage.DisplayAlert("Notification", "Hooray 🎈🎉 You've successfully made a new post 👍🏿 !", "OK");
+                    
                 });
             }
         }
