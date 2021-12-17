@@ -13,6 +13,14 @@ namespace SmartApp.Services
 {
     public class ApiServices
     {
+
+        /// <summary>Registers the asynchronous. Converting Http object to Json.</summary>
+        /// <param name="email">The email.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="confirmPassword">The confirm password.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         public async Task<bool> RegisterAsync(string email, string password, string confirmPassword)
         {
             var client = new HttpClient();
@@ -35,8 +43,17 @@ namespace SmartApp.Services
             return response.IsSuccessStatusCode;
         }
 
+
+        /// <summary>Logins the asynchronous. Creating key value pair for 
+        /// username, password and grant_type(authentication).</summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="password">The password.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         public async Task<string> LoginAsync(string userName, string password)
         {
+
             var keyValues = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("username", userName),
@@ -62,6 +79,11 @@ namespace SmartApp.Services
         }
 
 
+        /// <summary>Gets the ideas asynchronous.</summary>
+        /// <param name="accessToken">The access token.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         public async Task<List<Idea>> GetIdeasAsync(string accessToken)
         {
             var client = new HttpClient();
@@ -74,6 +96,12 @@ namespace SmartApp.Services
             return ideas;
         }
 
+
+
+        /// <summary>Posts the idea asynchronous.
+        /// Create new http client, access the token suing Authorization</summary>
+        /// <param name="idea">The idea.</param>
+        /// <param name="accessToken">The access token.</param>
         public async Task PostIdeaAsync(Idea idea, string accessToken)
         {
             var client = new HttpClient();
@@ -83,7 +111,8 @@ namespace SmartApp.Services
             HttpContent content = new StringContent(json);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await client.PostAsync("https://localhost:44312/api/ideas", content);
+            var pulse = await client.PostAsync("https://localhost:44312/api/ideas", content);
+
         }
     }
 }

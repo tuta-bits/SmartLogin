@@ -31,6 +31,15 @@
                         TextColor="LightCoral"
                         CornerRadius="10"/>
 
+                <Button 
+                        Text="Create New Post"
+                        BorderColor="MediumPurple"
+                        BorderWidth="4"
+                        BackgroundColor="LightSteelBlue"
+                        TextColor="LightCoral"
+                        CornerRadius="10"
+                        Clicked="GotoNewIdeaPage_Clicked"/>
+
                 <ListView ItemsSource="{Binding Ideas}"
                           HasUnevenRows="True">
                     <ListView.ItemTemplate>

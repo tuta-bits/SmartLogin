@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace SmartApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class IdeasPage : ContentPage
+    public partial class AddNewIdeaPage : ContentPage
     {
-        public IdeasPage()
+        public AddNewIdeaPage()
         {
             InitializeComponent();
-        }
-
-        private async void GotoNewIdeaPage_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AddNewIdeaPage());
         }
     }
 }
