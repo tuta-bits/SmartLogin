@@ -20,12 +20,12 @@ namespace SmartApp.Views
         }
 
 
-        /// <summary>Handles the Clicked event of the ToolbarItem control.</summary>
+        /// <summary>Handles the Clicked event of the ButtonIdea control.</summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
-        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        private async void ButtonIdea_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new IdeasPage());
+            await Navigation.PushAsync(new IdeasPage());
         }
     }
 }

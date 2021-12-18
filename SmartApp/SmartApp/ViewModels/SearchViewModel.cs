@@ -11,21 +11,17 @@ using Xamarin.Forms;
 
 namespace SmartApp.ViewModels
 {
-    public class IdeasViewModel : INotifyPropertyChanged
+    public class SearchViewModel : INotifyPropertyChanged
     {
         ApiServices _apiServices = new ApiServices();
         private List<Idea> _ideas;
 
-
-        // public string AccessToken { get; set; }
-
+        public string Keyword { get; set; }
 
 
-        /// <summary>Gets or sets the ideas.</summary>
-        /// <value>The ideas.</value>
-        public List<Idea> Ideas 
-        { 
-            get { return _ideas; } 
+        public List<Idea> Ideas
+        {
+            get { return _ideas; }
             set
             {
                 _ideas = value;
@@ -34,34 +30,18 @@ namespace SmartApp.ViewModels
         }
 
 
-        /// <summary>Gets the get ideas command.</summary>
-        /// <value>The get ideas command.</value>
-        public ICommand GetIdeasCommand
+        /// <summary>Gets the search command.</summary>
+        /// <value>The search command.</value>
+        public ICommand SearchCommand
         {
             get
             {
                 return new Command(async () =>
                 {
-                    var accesstoken = Settings.AccessToken;
-                    Ideas = await _apiServices.GetIdeasAsync(accesstoken);
+                    Ideas = await _apiServices.SearchIdeasAsync(Keyword, Settings.AccessToken);
                 });
             }
         }
-
-
-        public ICommand LogoutCommand
-        {
-            get
-            {
-                return new Command(() =>
-                {
-                    Settings.AccessToken = "";
-                    Settings.Username = "";
-                    Settings.Password = "";
-                });
-            }
-        }
-
 
 
         /// <summary>Occurs when a property value changes.</summary>

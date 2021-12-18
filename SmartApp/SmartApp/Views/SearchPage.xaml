@@ -1,25 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartApp.Views.IdeasPage"
-             xmlns:vm="clr-namespace:SmartApp.ViewModels">
+             x:Class="SmartApp.Views.SearchPage"
+             xmlns:vm="clr-namespace:SmartApp.ViewModels"
+             Title="Search">
 
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Search Page"
-                     Clicked="ToolbarItem_Clicked" />
-        <ToolbarItem Text="Logout"
-                     Command="{Binding LogoutCommand}" 
-                     Clicked="Logout_Clicked"/>
-    </ContentPage.ToolbarItems>
-    
-    
     <ContentPage.BindingContext>
-        <vm:IdeasViewModel/>
+        <vm:SearchViewModel />
     </ContentPage.BindingContext>
-
-
-
 
     <Grid Padding="10">
         <Frame CornerRadius="20"
@@ -27,33 +16,24 @@
                BackgroundColor="AliceBlue">
             <StackLayout Orientation="Vertical"
                          Padding="12,6">
-                <!--<Entry Text="{Binding AccessToken}"
-                       Placeholder="Access Token"
-                       PlaceholderColor="LightCoral"
-                       BackgroundColor="AliceBlue"
-                       TextColor="Black"/>-->
+                <SearchBar Text="{Binding Keyword}"
+                           BackgroundColor="AliceBlue"
+                           Placeholder="Keyword"
+                           PlaceholderColor="LightCoral"
+                           TextColor="Black"/>
 
-                <Button Command="{Binding GetIdeasCommand}"
-                        Text="Display Info"
+                <Button Command="{Binding SearchCommand}"
+                        Text="Search"
                         BorderColor="MediumPurple"
                         BorderWidth="4"
                         BackgroundColor="LightSteelBlue"
                         TextColor="LightCoral"
                         CornerRadius="10"/>
 
-                <Button 
-                        Text="Create New Post"
-                        BorderColor="MediumPurple"
-                        BorderWidth="4"
-                        BackgroundColor="LightSteelBlue"
-                        TextColor="LightCoral"
-                        CornerRadius="10"
-                        Clicked="GotoNewIdeaPage_Clicked"/>
-
                 <ListView ItemsSource="{Binding Ideas}"
-                          x:Name="Smart"
                           HasUnevenRows="True"
-                          ItemTapped="Smart_ItemTapped">
+                          x:Name="Boss"
+                          ItemTapped="Boss_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -73,6 +53,5 @@
             </StackLayout>
         </Frame>
     </Grid>
-
 
 </ContentPage>

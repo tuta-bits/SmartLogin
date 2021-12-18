@@ -150,6 +150,17 @@ namespace SmartLogin.Controllers
             return Ok(idea);
         }
 
+
+        // GET: api/Ideas/Search/{keyword}
+        [Authorize]
+        [Route("api/Ideas/Search/{keyword}")]
+        [HttpGet]
+        public IQueryable<Idea> SearchIdeas(string keyword)
+        {
+            // Creating a query to use any keyword to search for items.
+            return db.Ideas.Where(idea => idea.Title.Contains(keyword) || idea.Description.Contains(keyword));
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

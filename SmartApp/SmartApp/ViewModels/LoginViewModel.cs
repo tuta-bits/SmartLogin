@@ -29,6 +29,7 @@ namespace SmartApp.ViewModels
                     var accesstoken = await _apiServices.LoginAsync(Username, Password);
 
                     Settings.AccessToken = accesstoken;
+
                 });
             }
         }
@@ -39,6 +40,20 @@ namespace SmartApp.ViewModels
         {
             Username = Settings.Username;
             Password = Settings.Password;
+        }
+
+
+        public ICommand LogoutCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    Settings.AccessToken = "";
+                    Settings.Username = "";
+                    Settings.Password = "";
+                });
+            }
         }
     }
 }

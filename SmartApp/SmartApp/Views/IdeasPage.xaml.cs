@@ -40,5 +40,19 @@ namespace SmartApp.Views
             var clear = e.Item as Idea;
             await Navigation.PushAsync(new EditIdeaPage(clear));
         }
+
+
+        /// <summary>Handles the Clicked event of the ToolbarItem control.</summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SearchPage());
+        }
+
+        private async void Logout_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
     }
 }

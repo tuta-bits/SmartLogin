@@ -5,10 +5,6 @@
              xmlns:viewModels="clr-namespace:SmartApp.ViewModels">
 
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Ideas Page"
-                     Clicked="ToolbarItem_Clicked"/>
-    </ContentPage.ToolbarItems>
     
     
     <ContentPage.BindingContext>
@@ -35,6 +31,7 @@
                        TextColor="Black"/>
 
                 <Button Command="{Binding LoginCommand}"
+                        Clicked="ButtonIdea_Clicked"
                         Text="Login"
                         BorderColor="MediumPurple"
                         BorderWidth="4"

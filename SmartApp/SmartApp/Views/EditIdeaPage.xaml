@@ -34,7 +34,17 @@
 
 
                 <Button Command="{Binding EditCommand}"
+                        Clicked="ButtonEdit_Clicked"
                         Text="Edit Post"
+                        BorderColor="MediumPurple"
+                        BorderWidth="4"
+                        BackgroundColor="LightSteelBlue"
+                        TextColor="LightCoral"
+                        CornerRadius="10"/>
+
+                <Button Command="{Binding DeleteCommand}"
+                        Clicked="ButtonDelete_Clicked"
+                        Text="Delete Post"
                         BorderColor="MediumPurple"
                         BorderWidth="4"
                         BackgroundColor="LightSteelBlue"

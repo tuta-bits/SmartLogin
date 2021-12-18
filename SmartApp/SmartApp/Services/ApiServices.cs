@@ -77,6 +77,7 @@ namespace SmartApp.Services
 
             Debug.WriteLine(jwt);
             return accessToken;
+
         }
 
 
@@ -146,11 +147,49 @@ namespace SmartApp.Services
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Notification !", "An error occured while trying to edit a post " +
+                await Application.Current.MainPage.DisplayAlert("Notification !", "An error occured while trying to edit a post. " +
                             "Please make sure you're the creator of the post and try again 😥 !", "OK");
             }
 
 
+        }
+
+
+
+        /// <summary>Deletes the idea asynchronous.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="accessToken">The access token.</param>
+        public async Task DeleteIdeaAsync(int id, string accessToken)
+        {
+            var claim = new HttpClient();
+            claim.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
+
+            var reply = await claim.DeleteAsync("https://localhost:44312/api/ideas/" + id);
+
+            if (reply.IsSuccessStatusCode)
+            {
+                await Application.Current.MainPage.DisplayAlert("Notification", "You've successfully deleted your post 👍🏿 !", "OK");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Notification !", "An error occured while trying to delete a post. " +
+                            "Please make sure you're the creator of the post and try again 😥 !", "OK");
+            }
+        }
+
+
+
+        public async Task<List<Idea>> SearchIdeasAsync(string keyword, string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
+
+
+            var json = await client.GetStringAsync("https://localhost:44312/api/ideas/Search/" + keyword);
+
+            var ideas = JsonConvert.DeserializeObject<List<Idea>>(json);
+
+            return ideas;
         }
     }
 }
