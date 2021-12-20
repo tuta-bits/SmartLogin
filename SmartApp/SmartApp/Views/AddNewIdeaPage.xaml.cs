@@ -16,5 +16,14 @@ namespace SmartApp.Views
         {
             InitializeComponent();
         }
+
+
+        /// <summary>Creates new post_clicked.</summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        private async void NewPost_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new IdeasPage());
+        }
     }
 }

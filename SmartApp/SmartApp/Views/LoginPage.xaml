@@ -5,6 +5,10 @@
              xmlns:viewModels="clr-namespace:SmartApp.ViewModels">
 
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Sign-Up"
+                     Clicked="SignUpPage_Clicked" />
+    </ContentPage.ToolbarItems>
     
     
     <ContentPage.BindingContext>

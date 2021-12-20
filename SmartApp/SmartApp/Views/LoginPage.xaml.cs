@@ -27,5 +27,15 @@ namespace SmartApp.Views
         {
             await Navigation.PushAsync(new IdeasPage());
         }
+
+
+
+        /// <summary>Handles the Clicked event of the SignUpPage control.</summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        private async void SignUpPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
+        }
     }
 }

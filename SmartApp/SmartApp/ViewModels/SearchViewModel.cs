@@ -13,6 +13,7 @@ namespace SmartApp.ViewModels
 {
     public class SearchViewModel : INotifyPropertyChanged
     {
+
         ApiServices _apiServices = new ApiServices();
         private List<Idea> _ideas;
 

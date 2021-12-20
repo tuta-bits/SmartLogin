@@ -34,6 +34,7 @@
 
 
                 <Button Command="{Binding AddCommand}"
+                        Clicked="NewPost_Clicked"
                         Text="Add New Post"
                         BorderColor="MediumPurple"
                         BorderWidth="4"
